@@ -1,0 +1,38 @@
+<div id="statusContainer" style="background-image: url(assets/images/img/88.jpg);">
+  <div id="baseInfo">
+    <p id="capital">会议室监测云终端</p>
+    <p id="date">{{date}}</p>
+  </div>
+  <div id="header">
+    <p id="m1" [style.color]="pm>75?'red':'white'">{{pm}}</p>
+    <span class="post badge" [ngClass]="pm>75?'badge-danger':'badge-success'">{{pmS}}</span>
+    <p id="pm">PM2.5</p>
+    <span id="p_unit">μg/m³</span>
+  </div>
+  <div id="list">
+    <div class="item">
+      <p class="property">温度</p>
+      <span class="level badge" [ngClass]="temp<10?'badge-info':'badge-success'">{{tempS}}</span>
+      <p class="value color" [style.color]="temp<10?'blue':'white'">{{temp}}</p>
+      <p class="l_unit">℃</p>
+    </div>
+    <div class="item">
+      <p class="property">湿度</p>
+      <span class="level badge " [ngClass]="humd>60?'badge-info':'badge-success'">{{humdS}}</span>
+      <p class="value" [style.color]="humd>60?'blue':'white'">{{humd}}</p>
+      <p id="ll_unit">%</p>
+    </div>
+    <div class="item">
+      <p class="property">烟雾</p>
+      <span class="level badge" [ngClass]="10>1.977?'badge-danger':'badge-success'">{{YWS}}</span>
+      <p class="value" [style.color]="yw>10?'red':'white'">{{yw}}</p>
+      <p id="l_unit">g/L</p>
+    </div>
+    <div class="item">
+      <p class="property">光照度</p>
+      <span class="level badge" [ngClass]="light<300?'badge-danger':'badge-success'">{{lightS}}</span>
+      <p class="value" [style.color]="light<300?'red':'white'">{{light}}</p>
+      <p id="l_unit">lx</p>
+    </div>
+  </div>
+</div>

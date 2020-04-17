@@ -1,0 +1,48 @@
+<div style="width: 100%;height: 600px; background-image: url('/assets/images/img/re.png')">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-3">
+            </div>
+            <div class="col-sm-6">
+                <form class="form-group" [formGroup]="regForm" (ngSubmit)="onSubmit(regForm.value)">
+                    <h4>职员注册</h4>
+                    <div class="form-group" [class.error]="!userId.valid && userId.touched">
+                        <label for="userIdInput">员工ID:</label>
+                        <input type="text" class="form-control" name="userId" placeholder="请输入ID..." [ngClass]="{'is-invaild':userId.hasError('required')}"
+                            [formControl]="regForm.controls['userId']">
+                    </div>
+                    <div class="form-group" [class.error]="!userName.valid && userName.touched">
+                        <label for="userNameInput">用户名:</label>
+                        <input type="text" class="form-control" name="userName" placeholder="请输入用户名..." [ngClass]="{'is-invaild':userName.hasError('required')}"
+                            [formControl]="regForm.controls['userName']">
+                    </div>
+                    <div class="form-group" [class.error]="!password.valid && password.dirty">
+                        <label for="pwd">密码:</label>
+                        <input type="password" class="form-control" name="password" placeholder="请输入密码..." [ngClass]="{'is-invaild':password.hasError('required')}"
+                            [formControl]="regForm.controls['password']">
+                    </div>
+                    <div class="form-group" [class.error]="!sex.valid && sex.touched">
+                        <label for="sexInput">性别:</label>
+                        <select name="sex" class="form-control" placeholder="请选择性别..." [ngClass]="{'is-invaild':sex.hasError('required')}" [formControl]="sex">
+                            <option>男</option>
+                            <option>女</option>
+                        </select>
+                        <!-- <input type="text" class="form-control" name="sex" placeholder="请输入性别..." [ngClass]="{'is-invaild':sex.hasError('required')}"
+                            [formControl]="regForm.controls['sex']"> -->
+                    </div>
+                    <div class="form-group" [class.error]="!phone.valid && phone.touched">
+                        <label for="phoneInput">电话:</label>
+                        <input type="text" class="form-control" name="phone" placeholder="请输入电话号码..." [ngClass]="{'is-invaild':phone.hasError('required')}"
+                            [formControl]="regForm.controls['phone']">
+                    </div>
+
+                    <div>
+                        <button type="submit" class="btn btn-primary btn-lg btn-block">注册</button>
+                    </div>
+                </form>
+            </div>
+            <div class="col-sm-3">
+            </div>
+        </div>
+    </div>
+</div>

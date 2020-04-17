@@ -1,0 +1,14 @@
+
+button{
+    text-align: center;
+    width: 120px;
+    height: 40px;
+   border: solid 1px white;
+}
+#box{
+    float: right;
+    margin-right: 15px;
+}
+#btn{
+    margin-right: 15px
+}

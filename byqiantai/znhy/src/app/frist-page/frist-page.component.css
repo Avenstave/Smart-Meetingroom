@@ -1,0 +1,89 @@
+#statusContainer{
+    width: 106.32%;
+    height: 723.7px;
+    margin-left: -6.3%;
+    margin-top: -5.3%;
+    z-index: -99;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 20px;
+}
+#baseInfo{
+    margin-top: 60px
+}
+#date{
+    font-size: 12px;
+    text-align: center;
+}
+#capital{
+    font-weight: bold;
+    font-size: 24px;
+}
+#header{
+    margin-top: 10px;
+    position: relative;
+    width: 150px;
+}
+.post{
+    position: absolute;
+    top: 5px;
+    right: 10%;
+}
+#m1{
+    font-weight: bold;
+    font-size: 72px;
+    text-align: center;
+}
+#pm{
+    font-size: 19px;
+    font-weight: bold;
+    text-align: center;
+}
+#p_unit{
+    position: absolute;
+    bottom: 38%;
+    right: -10%;
+}
+#list{
+width: 100%;
+display: flex;
+flex-wrap: wrap;
+margin-top: 50px;
+}
+.item{
+    width: 50%;
+    position: relative;
+}
+.property{
+    text-align: center;
+    font-weight: bold;
+    font-size: 16px;
+    padding-top: 10px;
+}
+.value{
+    font-size: 42px;
+    font-weight: bold;
+    text-align: center;
+}
+.level{
+    position: absolute;
+    top:32%;
+    right: 40%;
+}
+.l_unit{
+    position: absolute;
+    bottom: 8%;
+    right: 40%;
+}
+#l_unit{
+     position: absolute;
+    bottom: 8%;
+    right: 39%;
+}
+#ll_unit{
+     position: absolute;
+    bottom: 8%;
+    right: 41%;
+}

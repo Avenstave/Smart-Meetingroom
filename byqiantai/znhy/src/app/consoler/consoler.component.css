@@ -1,0 +1,23 @@
+#ledsList{
+    height: 200px;
+       width: 92%;
+}
+.listItem{
+    display: flex;
+}
+.sty{
+    width: 25%;
+    height: 100%;
+    display: flex;
+    flex-direction: wrap;
+}
+.p_sty{
+    width: 100%;
+    text-align: center;
+    background-color: darkgray;
+}
+.sty_sty{
+    margin: 12px 0px;
+    padding: 0px;
+    margin-left:27% ;
+}

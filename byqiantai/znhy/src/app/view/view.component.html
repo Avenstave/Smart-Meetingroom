@@ -1,0 +1,32 @@
+<div class="container" id="con">
+  <div class="row" style="margin-top: 20px;">
+    <div class="col-md-8">
+      <div class="card" style="width: 40rem;height: 300px;">
+        <div class="card-body">
+          <h5 class="card-title">温湿度曲线图</h5>
+          <div echarts [options]="Hoption" [merge]="updateaOption" style=" height: 200px;"></div>
+        </div>
+      </div>
+      <div class="card" style="width: 40rem;height:300px;margin-top: 20px;">
+        <div class="card-body">
+          <h5 class="card-title">空气成分分析曲线</h5>
+          <div echarts [options]="chartOption" [merge]="updatecOption" style="height: 200px;margin-left: 15px"></div>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="card" style="width: 18rem; height: 300px;">
+        <div class="card-body">
+          <h5 class="card-title">光照率</h5>
+          <div echarts [options]="Doption" [merge]="updatebOption" style=" height: 200px;"></div>
+        </div>
+      </div>
+      <div class="card" style="width: 18rem; height: 300px;margin-top: 20px;">
+        <div class="card-body">
+          <h5 class="card-title">烟雾浓度</h5>
+          <div echarts [options]="Poption" [merge]="updatedOption" style=" height: 200px;"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

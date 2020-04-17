@@ -1,0 +1,129 @@
+<div class="container">
+  <div class="row" style="margin-top: 20px">
+    <div class="col-sm-6">
+      <!-- <div style="padding:0 0 15px  50px;"> -->
+      <div class="card" style="width: 100%;height: 300px; margin-top: 30px;" *ngFor="let meet of meets">
+        <img src="assets/images/img/chatu1.jpg" class="card-img-top" style="height: 150px;width: 100%;">
+        <div class="card-body">
+          <div style="width: 100%;">
+            <h5 style="float: left;">编号：</h5>
+            <h4 style="text-align:right;">
+              {{meet.meet_num}}</h4>
+          </div>
+          <div style="width: 100%;">
+            <h5 style="float: left;"> 状态:</h5>
+            <h6 style="text-align:right;">
+              <span style="width: 60px;height: 30px;" [ngClass]="meet.status == 0?'badge-success':'badge-danger'">{{meet.status===0?'未预约':'已预约'}}</span>
+            </h6>
+          </div>
+          <button type="submit" class="btn btn-primary btn-lg btn-block" (click)="signin(meet.meet_num)">进入</button>
+        </div>
+      </div>
+      <!-- </div> -->
+    </div>
+    <div class="col-sm-6">
+      <div style="width: 100%; width: 550px;margin-bottom:30px ">
+        <div style="float: left;width: 450px;">
+          <!-- <form [formGroup]="myFrm" style="border:1px solid rgb(87, 226, 231);padding:10px;border-radius: 5px;background-color: rgb(247, 247, 247);"
+        id="box">
+        <div style="width: 23%;margin-left: 20px;float: left;">
+          <label position="text">设备号:</label>
+          <input type="text" name=" search" [formControl]="search" class="form-control">
+        </div>
+        <div>
+          <button type="button" class="btn btn-success" (click)="select(myFrm.value)" style="margin-top: 20px;margin-left: 20px;">查询设备
+          </button>
+        </div> -->
+          <!-- </form> -->
+          <form class="form-group form-inline my-2 my-lg-0" [formGroup]="myFrm" (ngSubmit)="onSubmit(myFrm.value)" style="float: left;">
+            <div class="form-group">
+              <input class="form-control" name=" search" [formControl]="search" style="width: 350px;" type="search" placeholder="Search"
+                aria-label="Search">
+            </div>
+            <button class="btn btn-outline-success my-2 my-sm-0" style="margin-left: 15px;" type="button" (click)="select(myFrm.value)">Search</button>
+          </form>
+        </div>
+        <div style="float: right;width: 100px;">
+          <button style="float: left; width: 70px;" class="btn btn-outline-primary my-2 my-sm-0" data-toggle="modal" data-target="#myModal">
+            创建
+          </button>
+        </div>
+      </div>
+      <!-- 模态框（Modal） -->
+      <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h4 class="modal-title pull-left" id="myModalLabel">创建</h4>
+              <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+                &times;
+              </button>
+            </div>
+            <div class="modal-body">
+              <form [formGroup]="upForm" (ngSubmit)="onSubmit(upForm.value)">
+                <div class="form-group">
+                  <div>
+                    <label for="idInput">编号</label>
+                    <input type="text" [formControl]="upForm.controls['id']" placeholder="请输入编号，如：001...." name="id">
+                  </div>
+                  <div>
+                    <label for="statusInput">状态</label>
+                    <input type="text" [formControl]="upForm.controls['status']" placeholder="请输入0或1" name="status">
+                  </div>
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-success" (click)="add(upForm.value)">确认</button>
+                </div>
+              </form>
+            </div>
+          </div>
+          <!-- /.modal-content -->
+        </div>
+        <!-- /.modal -->
+      </div>
+      <!-- 查询结果 -->
+      <div *ngIf="isResult == true">
+        <div class="card" style="width: 100%;height: 315px; margin-top: 30px;" *ngFor="let meets of meetss">
+          <img src="assets/images/img/chatu1.jpg" class="card-img-top" style="height: 150px;width: 100%;">
+          <div class="card-body">
+            <div style="width: 100%;">
+              <h5 style="float: left;">编号：</h5>
+              <h4 style="text-align:right;">
+                {{meets.meet_num}}</h4>
+            </div>
+            <div style="width: 100%;">
+              <h5 style="float: left;"> 状态:</h5>
+              <span style="text-align:right;width: 60px;height: 30px; " [ngClass]="meets.status == 0?'badge-success':'badge-danger'">{{meets.status===0?'未预约':'已预约'}}</span>
+
+              <h6 style="text-align:right;">
+                <span style="width: 60px;height: 30px;" [ngClass]="meets.status == 0?'badge-success':'badge-danger'">{{meets.status===0?'未预约':'已预约'}}</span>
+              </h6>
+            </div>
+            <button type="submit" class="btn btn-primary btn-lg btn-block" (click)="signin(meets.meet_num)">进入</button>
+          </div>
+        </div>
+      </div>
+
+      <div *ngIf="isResult == false">
+        <!-- 未预约的会议室列表 -->
+        <div class="card" style="width: 100%;height: 300px; margin-top: 30px;" *ngFor="let mtee of mtees">
+          <img src="assets/images/img/chatu1.jpg" class="card-img-top" style="height: 150px;width: 100%;">
+          <div class="card-body">
+            <div style="width: 100%;">
+              <h5 style="float: left;">编号：</h5>
+              <h4 style="text-align:right;">
+                {{mtee.meet_num}}</h4>
+            </div>
+            <div style="width: 100%;">
+              <h5 style="float: left;"> 状态:</h5>
+              <h6 style="text-align:right;">
+                <span style="width: 60px;height: 30px;" [ngClass]="mtee.status == 0?'badge-success':'badge-danger'">{{mtee.status===0?'未预约':'已预约'}}</span>
+              </h6>
+            </div>
+            <button type="submit" class="btn btn-primary btn-lg btn-block" (click)="delete(mtee.meet_num)">删除</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

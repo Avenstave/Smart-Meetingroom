@@ -1,0 +1,37 @@
+#col-3{
+    background-color: #292929;
+    box-shadow: 5px 1px 5px #5c5b5b;
+    height: 680px;
+    z-index: 98;
+    position:fixed;
+    top: 0px;
+    left: 0px;
+    padding: 0px;
+
+}
+#d{
+    height: 59px;
+    width: 100%;
+}
+h3{
+    text-align: center;
+    color: #fff;
+}
+ul{
+    text-align: center;
+    border: none;
+}
+li.list-group-item{
+    border-radius: 0px;
+    background: #292929;
+    color: #fff;
+}
+li.list-group-item.active{
+    border-radius: 0px;
+    background:white;
+    color:  rgb(158, 158, 158);
+    border:0px solid white;
+}
+ #col-9{
+    float: right;
+} 

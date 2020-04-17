@@ -1,0 +1,90 @@
+<h3 style="text-align: center;">设备清单</h3>
+<div id="box">
+    <button class="btn btn-primary" id="btn" data-toggle="modal" data-target="#myModal">
+        操作设备
+    </button>
+    <button class="btn btn-primary" (click)="refresh()">刷新数据</button>
+</div>
+<!-- 模态框（Modal） -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title pull-left" id="myModalLabel"> 操作设备</h4>
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+                    &times;
+                </button>
+            </div>
+            <div class="modal-body">
+                <form [formGroup]="upForm" (ngSubmit)="onSubmit(upForm.value)">
+                    <div class="form-group">
+                        <div>
+                            <label for="idInput">设备编号</label>
+                            <input type="text" [formControl]="upForm.controls['id']" placeholder="请输入编号，如：001...." name="id">
+                        </div>
+                        <div>
+                            <label for="nameInput">设备名称</label>
+                            <input type="text" [formControl]="upForm.controls['devName']" placeholder="请输入名称，如：led...." name="devName">
+                        </div>
+                        <div>
+                            <label for="statusInput">设备状态</label>
+                            <input type="text" [formControl]="upForm.controls['status']" placeholder="请输入0或1，‘0’是开，‘1’是关" name="status">
+                        </div>
+                        <div>
+                            <label for="meetInput">设备所在</label>
+                            <input type="text" [formControl]="upForm.controls['meet_num']" placeholder="请输入会议室编号" name="meet_num">
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-success" (click)="add(upForm.value)">添加</button>
+                        <button type="button" class="btn btn-danger" (click)="delete(upForm.value)">删除</button>
+                        <button type="button" class="btn btn-warning" (click)="update(upForm.value)">修改</button>
+                        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal" (click)="select(upForm.value)">查询</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <!-- /.modal-content -->
+    </div>
+    <!-- /.modal -->
+</div>
+<div *ngIf="isResult == true">
+    <table class="table" style="text-align: center;">
+        <thead class="thead-dark">
+            <tr>
+                <th>id</th>
+                <th>名称</th>
+                <th>状态</th>
+
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let equment of equments">
+                <td>{{ equment.id }}</td>
+                <td>{{ equment.name }}</td>
+                <td>{{ equment.status === 0? '关':'开' }}</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+<div *ngIf="isResult == false">
+    <table class="table table-striped table-hover perf" style="text-align: center;">
+        <thead class="thead-dark">
+            <tr>
+                <!-- <th>#</th> -->
+                <th>id</th>
+                <th>名称</th>
+                <th>状态</th>
+
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let device of devices$ | async; let i = index">
+                <!-- <td>{{ i }}</td> -->
+                <td>{{ device.id }}</td>
+                <td>{{ device.name }}</td>
+                <td>{{ device.status === 0? '关':'开' }}</td>
+            </tr>
+        </tbody>
+    </table>
+</div>

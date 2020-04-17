@@ -1,0 +1,23 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-sm-2" id="col-3">
+      <div id="d">
+      </div>
+      <h3>MENU</h3>
+      <ul class="list-group bg-dark">
+        <li class="list-group-item" [ngClass]="{active:menuIndex == 1}" [routerLink]="['user-list']" (click)="menuClick(1)">注销信息</li>
+        <li class="list-group-item" [ngClass]="{active:menuIndex == 2}" [routerLink]="['user-list2']" (click)="menuClick(2)">信息修改</li>
+        <li class="list-group-item" [ngClass]="{active:menuIndex == 3}" [routerLink]="['user-list3']" (click)="menuClick(3)">信息管理</li>
+      </ul>
+    </div>
+    <div class="col-sm-12">
+      <div class="col-sm-2">
+
+      </div>
+      <div class="col-sm-10" style="float:right;">
+        <router-outlet></router-outlet>
+      </div>
+    </div>
+
+  </div>
+</div>

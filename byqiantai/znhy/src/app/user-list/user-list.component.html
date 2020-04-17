@@ -1,0 +1,26 @@
+<div style="width: 100%;height: 600px; background-image: url('/assets/images/img/201.jpg')">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-3">
+
+            </div>
+            <div class="col-sm-6">
+                <form class="form-group" [formGroup]="userForm" (ngSubmit)="onSubmit(userForm.value)">
+                    <h4>用户注销</h4>
+                    <div class="form-group" [class.error]="!username.valid && username.touched">
+                        <p></p>
+                        <label for="userNameInput">用户名:</label>
+                        <p *ngIf="!username.valid" class="alert alert-info">
+                            <strong>信息!</strong>请填写用户名</p>
+                        <input type="text" class="form-control" name="username" placeholder="请输入用户名..." [ngClass]="{'is-invaild':username.hasError('required')}"
+                            [formControl]="userForm.controls['userName']">
+                    </div>
+                    <div>
+                        <button type="button" class="btn btn-danger" (click)="delete(userForm.value)">注销</button>
+                    </div>
+                </form>
+                <div class="col-sm-3"></div>
+            </div>
+        </div>
+    </div>
+</div>

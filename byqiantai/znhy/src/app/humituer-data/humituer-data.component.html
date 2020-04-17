@@ -1,0 +1,29 @@
+<div class="row">
+  <div class="col-sm-12">
+    <h3 style="text-align: center;">温湿度历史数据</h3>
+    <div id="box">
+      <button class="btn btn-danger" id="btn" (click)="cleanAll()">清空数据</button>
+      <button class="btn btn-primary" (click)="refresh()">刷新数据</button>
+    </div>
+    <table class="table table-striped table-hover perf" style="text-align: center;">
+      <thead class="thead-dark">
+        <tr>
+          <th>#</th>
+          <th>设备ID</th>
+          <th>温度</th>
+          <th>湿度</th>
+          <th>时间</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let humituer of humituers$ | async;let i = index">
+          <td>{{i}}</td>
+          <td>{{ humituer.id }}</td>
+          <td>{{ humituer.temp }}</td>
+          <td>{{ humituer.humd }}</td>
+          <td>{{ humituer.time }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
